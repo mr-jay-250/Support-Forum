@@ -1,0 +1,50 @@
+.commentSection {
+    margin-top: 20px;
+}
+
+.commentItem {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+.commentText {
+    margin-bottom: 5px;
+}
+
+.commentOwner {
+    color: #777;
+    font-style: italic;
+}
+
+.commentTimestamp {
+    color: #777;
+    font-size: 0.9rem;
+}
+
+.commentForm {
+    margin-top: 20px;
+}
+
+.commentInput {
+    width: calc(100% - 100px);
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 12px;
+}
+
+.submitButton {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.submitButton:hover {
+    background-color: #0056b3;
+}

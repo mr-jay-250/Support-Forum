@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import api from '../services/api';
 import { useNavigate } from 'react-router-dom';
+import styles from '../style/Auth.module.css'; // Import the CSS module
 
 const Auth = ({ isLogin }) => {
   const [username, setUsername] = useState('');
@@ -20,16 +21,16 @@ const Auth = ({ isLogin }) => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <div>
-        <label>Username</label>
-        <input type="text" value={username} onChange={(e) => setUsername(e.target.value)} />
+    <form onSubmit={handleSubmit} className={styles.authForm}>
+      <div className={styles.formGroup}>
+        <label className={styles.label}>Username</label>
+        <input type="text" value={username} onChange={(e) => setUsername(e.target.value)} className={styles.inputField} />
       </div>
-      <div>
-        <label>Password</label>
-        <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
+      <div className={styles.formGroup}>
+        <label className={styles.label}>Password</label>
+        <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} className={styles.inputField} />
       </div>
-      <button type="submit">{isLogin ? 'Login' : 'Register'}</button>
+      <button type="submit" className={styles.submitButton}>{isLogin ? 'Login' : 'Register'}</button>
     </form>
   );
 };

@@ -1,0 +1,34 @@
+.questionPageContainer {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.questionTitle {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+.questionDescription {
+    margin-bottom: 20px;
+}
+
+.questionDetails {
+    margin-bottom: 20px;
+}
+
+.questionTags {
+    color: #777;
+    font-style: italic;
+    margin-bottom: 10px;
+}
+
+.questionOwner {
+    color: #777;
+    font-style: italic;
+}
+
+.questionTimestamp {
+    color: #777;
+    font-size: 0.9rem;
+}

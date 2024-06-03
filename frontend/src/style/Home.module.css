@@ -1,0 +1,29 @@
+.homeContainer {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.questionList {
+    margin-top: 20px;
+}
+
+.questionItem {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+.questionTitle {
+    font-size: 1.2rem;
+    margin-bottom: 5px;
+}
+
+.questionDescription {
+    margin-bottom: 10px;
+}
+
+.viewsCount {
+    color: #777;
+}

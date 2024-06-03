@@ -1,6 +1,6 @@
-// CommentSection.js
 import React, { useState, useEffect } from 'react';
 import api from '../services/api';
+import styles from '../style/CommentSection.module.css'; // Import the CSS module
 
 const CommentSection = ({ comments, questionId }) => {
   const [text, setText] = useState('');
@@ -26,21 +26,20 @@ const CommentSection = ({ comments, questionId }) => {
   };
 
   return (
-    <div>
+    <div className={styles.commentSection}>
       <h2>Comments</h2>
       {comments.map(comment => (
-        <div key={comment.id}>
-          <p>{comment.text}</p>
-          <p>Owner: {ownerNames[comment.owner]}</p>
-          <p>Posted at: {comment.createdAt}</p>
+        <div key={comment.id} className={styles.commentItem}>
+          <p className={styles.commentText}>{comment.text}</p>
+          <p className={styles.commentOwner}>Owner: {ownerNames[comment.owner]}</p>
+          <p className={styles.commentTimestamp}>Posted at: {comment.createdAt}</p>
         </div>
       ))}
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} className={styles.commentForm}>
         <div>
-          <label>Comment</label>
-          <input type="text" value={text} onChange={(e) => setText(e.target.value)} />
+          <input type="text" value={text} onChange={(e) => setText(e.target.value)} className={styles.commentInput} placeholder="Write a comment..." />
         </div>
-        <button type="submit">Add Comment</button>
+        <button type="submit" className={styles.submitButton}>Add Comment</button>
       </form>
     </div>
   );

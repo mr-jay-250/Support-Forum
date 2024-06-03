@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import api from '../services/api';
 import CommentSection from '../components/CommentSection';
+import styles from '../style/QuestionPage.module.css'; // Import the CSS module
 
 const QuestionPage = () => {
   const { id } = useParams();
@@ -33,12 +34,14 @@ const QuestionPage = () => {
   }, [id]);
 
   return (
-    <div>
-      <h1>{question.title}</h1>
-      <p>{question.description}</p>
-      <p>Tags: {question.tags}</p>
-      <p>Owner: {ownerName}</p>
-      <p>Created at: {question.createdAt}</p>
+    <div className={styles.questionPageContainer}>
+      <h1 className={styles.questionTitle}>{question.title}</h1>
+      <p className={styles.questionDescription}>{question.description}</p>
+      <div className={styles.questionDetails}>
+        <p className={styles.questionTags}>Tags: {question.tags}</p>
+        <p className={styles.questionOwner}>Owner: {ownerName}</p>
+        <p className={styles.questionTimestamp}>Created at: {question.createdAt}</p>
+      </div>
       <CommentSection comments={comments} questionId={id} />
     </div>
   );
