@@ -1,8 +1,23 @@
-import React, { useState } from 'react';
+// CommentSection.js
+import React, { useState, useEffect } from 'react';
 import api from '../services/api';
 
 const CommentSection = ({ comments, questionId }) => {
   const [text, setText] = useState('');
+  const [ownerNames, setOwnerNames] = useState({});
+
+  useEffect(() => {
+    const fetchOwnerNames = async () => {
+      const names = {};
+      for (const comment of comments) {
+        // Fetch owner's name based on owner ID for each comment
+        const response = await api.get(`/auth/${comment.owner}`);
+        names[comment.owner] = response.data.username; // Assuming owner's name is returned by the API
+      }
+      setOwnerNames(names);
+    };
+    fetchOwnerNames();
+  }, [comments]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -16,7 +31,7 @@ const CommentSection = ({ comments, questionId }) => {
       {comments.map(comment => (
         <div key={comment.id}>
           <p>{comment.text}</p>
-          <p>Owner: {comment.owner}</p>
+          <p>Owner: {ownerNames[comment.owner]}</p>
           <p>Posted at: {comment.createdAt}</p>
         </div>
       ))}

@@ -17,10 +17,17 @@ const getQuestionById = async (req, res) => {
 };
 
 const incrementViewCount = async (req, res) => {
-  const question = await Question.findByPk(req.params.id);
-  question.viewCount += 1;
-  await question.save();
-  res.json(question);
+  try {
+    const question = await Question.findByPk(req.params.id);
+    if (!question) {
+      return res.status(404).json({ error: 'Question not found' });
+    }
+    question.viewCount += 1;
+    await question.save();
+    res.json(question);
+  } catch (error) {
+    res.status(500).json({ error: 'Error incrementing view count' });
+  }
 };
 
 module.exports = { createQuestion, getQuestions, getQuestionById, incrementViewCount };
